@@ -1,41 +1,21 @@
-//we could explicitly tell TS what the object should have as such
-// const person: {
-//   name: string;
-//   age: number;
-// } = {
+//Here we dont know what the user Inpu will be
+let userInput: unknown;
+let userName: string;
 
-//OR we can let TS infer the object structure (properties)
-const person: {
-  //here we explicitly tell TS what the structure types are
-  name: string;
-  age: number;
-  hobbies: string[];
-  role: [number, string];
-} = {
-  name: "Fidel Garcia",
-  age: 24,
-  hobbies: ["Sports", "Cooking"],
-  //this is an array of type string OR number
-  role: [2, "author"],
-};
-
-//push is an exception that TS cannot catch (Bad for a tuple)
-// person.role.push("admin");
-// ERROR - since the index of 1 is a string and we tried to assign a number
-// person.role[1] = 10;
-
-//this will throw an error since role is a tuple
-// person.role = [0, "admin", "user"];
-
-let favoriteActivites: string[];
-// favoriteActivites = ["Sports", 5]; // error
-favoriteActivites = ["Sports"];
-
-//this will throw an error since TS infers that there is not nickname
-//  in the person object
-console.log(person.name);
-
-for (const hobby of person.hobbies) {
-  console.log(hobby.toUpperCase());
-  //   console.log(hobby.map());  //ERROR - map() cannot be done on strings
+//how is unknown different from the any
+userInput = 5;
+userInput = "Hello";
+//userName = userInput; // ERROR - unknown is not garenteed to be a string
+//There must be an added type check for the man. that we want to do
+if (typeof userInput === "string") {
+  userName = userInput;
 }
+
+//The never type
+// b/c there is an error the code will end here, therefore
+// this function will never return anything
+function generateError(message: string, code: number): never {
+  throw { message: message, errorCode: code };
+}
+
+generateError("Error occured", 500);
