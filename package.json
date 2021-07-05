@@ -1,15 +1,19 @@
 {
-  "name": "learning-typescript",
+  "name": "understanding-typescript",
   "version": "1.0.0",
-  "description": "",
+  "description": "Understanding TypeScript Course Setup",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lite-server"
   },
-  "author": "Fidel Garcia Villa",
+  "keywords": [
+    "typescript",
+    "course"
+  ],
+  "author": "Fidel Garcia",
   "license": "ISC",
-  "dependencies": {
-    "lite-server": "^2.6.1"
+  "devDependencies": {
+    "lite-server": "^2.5.4"
   }
 }
